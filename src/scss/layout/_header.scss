@@ -1,0 +1,12 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: $spacing-size-default;
+  margin-bottom: calc($spacing-size-default * 75 / 100);
+
+  &__nav {
+    display: flex;
+    gap: calc($spacing-size-default * 50 / 100);
+  }
+}

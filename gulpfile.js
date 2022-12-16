@@ -9,6 +9,7 @@ const minifyJs      = require('gulp-terser')
 function styles() {
   return src('./src/scss/*.scss')
     .pipe(scss())
+    .pipe(dest('./dist/'))
     .pipe(sourcemaps.init())
     .pipe(minifyCss())
     .pipe(rename({ extname: '.min.css' }))
@@ -18,6 +19,7 @@ function styles() {
 
 function scripts() {
   return src('./src/js/*.js')
+    .pipe(dest('./dist/'))
     .pipe(sourcemaps.init())
     .pipe(minifyJs())
     .pipe(rename({ extname: '.min.js' }))
@@ -27,7 +29,7 @@ function scripts() {
 
 function watchTasks() {
   watch(
-    ['./src/scss/*.scss', './src/js/*.js'],
+    ['./src/scss/**/*.scss', './src/js/*.js'],
     series(styles, scripts)
   )
 }
